@@ -1,14 +1,32 @@
-## 🎨 Flask GUI – DevOps Demo Application
+## 🎨  Flask GUI – CI/CD Demo Application
 
-This project is a lightweight **Python Flask web application** packaged with **Docker** to demonstrate core **DevOps and CI/CD concepts**.
+This project is a lightweight **Python Flask web application** containerized with **Docker** to demonstrate **CI/CD and DevOps fundamentals**.
 
-The application serves a colorful, interactive web UI and dynamically displays runtime system information (hostname, IP address, FQDN, and current date) from inside the container.  
-It is intentionally kept simple to focus on **containerization, automation, and CI/CD pipelines** rather than application complexity.
+The application serves a colorful, interactive web interface and dynamically displays runtime system information such as:
+- Hostname
+- IP Address
+- FQDN
+- Current Date
 
-### 🎯 Purpose of this project
-- Demonstrate Docker image build and container runtime behavior
-- Serve as a CI/CD demo project for **GitHub Actions** and **Jenkins**
-- Validate how application metadata changes across environments (VM, container, Kubernetes)
-- Showcase DevOps fundamentals in a clean, interview-friendly format
+This information is retrieved from inside the container, making the app useful for understanding how applications behave across different environments.
 
-This project is suitable for deployment on **Docker, EC2, Kubernetes (EKS/AKS), and cloud PaaS platforms**.
+---
+
+## 🎯 Purpose of This Project
+
+This project was created to:
+- Demonstrate Docker image build and container execution
+- Serve as a practical CI/CD demo using **GitHub Actions** and **Jenkins**
+- Validate environment-specific metadata inside containers
+- Act as a simple deployable app for Kubernetes, EC2, and cloud platforms
+
+---
+
+## 🚀 How to Run the Application
+
+### Option 1: Run using Docker (Recommended)
+
+```bash
+docker build -t flask-ci-cd-app .
+docker run -d -p 80:80 flask-ci-cd-app
+
