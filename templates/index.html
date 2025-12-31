@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DevSecOps Project by Karunakart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e1e1e, #2b2b2b);
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 30px;
+            color: #00ff08;
+            text-shadow: 1px 1px 6px #ff5722;
+            margin-top: 10px;
+        }
+
+        h3, h4 {
+            margin: 10px 0;
+            font-weight: 300;
+        }
+
+        hr {
+            border: 2px solid #00ff15;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            margin: 30px auto;
+            max-width: 800px;
+            padding: 0 10px;
+        }
+
+        .box {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.4s;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .button-container {
+            margin-top: 25px;
+        }
+
+        .btn {
+            background-color: #ff9800;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            border-radius: 6px;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #ffa726;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        /* Optional Logo
+        .logo {
+            width: 100px;
+            margin-bottom: 15px;
+        }
+        */
+    </style>
+</head>
+<body>
+
+    <!-- Optional logo -->
+    <!-- <img src="/static/logo.png" alt="Logo" class="logo"> -->
+
+    <h2>DevSecOps Project by KARUNAKART</h2>
+    <hr>
+
+    <h3>Today's date is: {{ today }}</h3>
+    <h3>Server hostname is: {{ hostname }}</h3>
+    <h3>Server FQDN is: {{ fqdn }}</h3>
+    <h3>Server IP Address is: {{ ip_address }}</h3>
+    <hr>
+
+    <h4>🎨 Click any color box OR use buttons below</h4>
+
+    <div class="grid" id="boxGrid">
+        <div class="box" style="background-color: #00bcd4;"></div>
+        <div class="box" style="background-color: #baff5f;"></div>
+        <div class="box" style="background-color: #8bc34a;"></div>
+        <div class="box" style="background-color: #4db6ac;"></div>
+        <div class="box" style="background-color: #80deea;"></div>
+        <div class="box" style="background-color: #01579b;"></div>
+    </div>
+
+    <div class="button-container">
+        <button class="btn" onclick="shuffleAll()">🔀 Shuffle Colors</button>
+        <button class="btn" onclick="resetAll()">♻️ Reset Colors</button>
+    </div>
+
+    <footer>Made with ❤️ by KARUNAKART | DevOps Enthusiast</footer>
+
+    <script>
+        const originalColors = [
+            "#00bcd4", "#baff5f", "#8bc34a",
+            "#4db6ac", "#80deea", "#01579b"
+        ];
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".box").forEach((box, i) => {
+                box.addEventListener("click", () => {
+                    box.style.backgroundColor = getRandomColor();
+                });
+            });
+        });
+
+        function getRandomColor() {
+            const letters = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function shuffleAll() {
+            document.querySelectorAll(".box").forEach(box => {
+                box.style.backgroundColor = getRandomColor();
+            });
+        }
+
+        function resetAll() {
+            document.querySelectorAll(".box").forEach((box, i) => {
+                box.style.backgroundColor = originalColors[i % originalColors.length];
+            });
+        }
+    </script>
+
+</body>
+</html>
