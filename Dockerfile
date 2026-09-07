@@ -20,5 +20,3 @@ EXPOSE 80
 CMD ["python", "main.py"]
 CMD ["gunicorn", "--bind", "0.0.0.0:80", "main:app"]
 
-
-
