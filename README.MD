@@ -29,4 +29,3 @@ This project was created to:
 ```bash
 docker build -t flask-ci-cd-app .
 docker run -d -p 80:80 flask-ci-cd-app
-
