@@ -19,3 +19,6 @@ EXPOSE 80
 # Run the Flask application
 CMD ["python", "main.py"]
 CMD ["gunicorn", "--bind", "0.0.0.0:80", "main:app"]
+
+
+
